@@ -72,6 +72,10 @@ public class MusicView extends View {
      */
     private float smallAngelRadius;
 
+    private float startAngle1 = 0;
+    private float startAngle2 = 180;
+    private float sweepAngle = 60;
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -84,12 +88,31 @@ public class MusicView extends View {
         //绘制四段弧线
         //两段大弧，弧度相差180度
         RectF rectF = new RectF(bigCircleRadius-bigAngelRadius,bigCircleRadius-bigAngelRadius,bigCircleRadius+bigAngelRadius,bigCircleRadius+bigAngelRadius);
-        canvas.drawArc(rectF,0,60,false,paint);
-        canvas.drawArc(rectF,180,60,false,paint);
+        canvas.drawArc(rectF,startAngle1,sweepAngle,false,paint);
+        canvas.drawArc(rectF,startAngle2,sweepAngle,false,paint);
         //两段小弧，弧度相差180度
         RectF rectFSmaller = new RectF(bigCircleRadius-smallAngelRadius,bigCircleRadius-smallAngelRadius,bigCircleRadius+smallAngelRadius,bigCircleRadius+smallAngelRadius);
-        canvas.drawArc(rectFSmaller,0,60,false,paint);
-        canvas.drawArc(rectFSmaller,180,60,false,paint);
+        canvas.drawArc(rectFSmaller,startAngle1,sweepAngle,false,paint);
+        canvas.drawArc(rectFSmaller,startAngle2,sweepAngle,false,paint);
 
+        startAngle1+=5;
+        startAngle2+=5;
+        if(!isDetached) {
+            invalidate();
+        }
+    }
+
+    /**
+     * 自定义控件是否脱离窗体
+     */
+    private boolean isDetached;
+
+    /**
+     * 当自定义控件脱离窗体，即将销毁
+     */
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        isDetached = true;
     }
 }
