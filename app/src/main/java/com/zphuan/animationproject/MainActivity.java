@@ -1,6 +1,9 @@
 package com.zphuan.animationproject;
 
 import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.TransitionDrawable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,10 +19,11 @@ import android.widget.TextView;
 
 import com.zphuan.animationproject.view.MusicView;
 import com.zphuan.animationproject.view.WIFIView;
+import com.zphuan.animationproject.view.WaterTextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String[] datas = {"WIFI_Demo","Music_Demo"};
+    private String[] datas = {"WIFI_Demo","Music_Demo","Water_Demo"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +73,9 @@ public class MainActivity extends AppCompatActivity {
      * @param position
      */
     private void alertViewDialog(int position) {
+        Dialog dialog = new Dialog(this);
+        Window window = dialog.getWindow();
+        WindowManager.LayoutParams attributes = window.getAttributes();
         View view = null;
         switch (position){
             case 0:
@@ -77,13 +84,17 @@ public class MainActivity extends AppCompatActivity {
             case 1:
                 view = new MusicView(this);
                 break;
+            case 2:
+                view = LayoutInflater.from(this).inflate(R.layout.water,null,false);
+                break;
         }
-        Dialog dialog = new Dialog(this);
         dialog.setContentView(view);
-        Window window = dialog.getWindow();
-        WindowManager.LayoutParams attributes = window.getAttributes();
-        attributes.width = (int) getResources().getDimension(R.dimen.view_width);
-        attributes.height = (int) getResources().getDimension(R.dimen.view_height);
+        if(position!=2){
+            attributes.width = (int) getResources().getDimension(R.dimen.view_width);
+            attributes.height = (int) getResources().getDimension(R.dimen.view_height);
+        }else{
+            window.getDecorView().setBackgroundColor(Color.TRANSPARENT);
+        }
         window.setAttributes(attributes);
         dialog.show();
     }

@@ -15,6 +15,14 @@
         <!--android:layout_width="200dp"-->
         <!--android:layout_height="200dp" />-->
 
+    <!--<com.zphuan.animationproject.view.WaterTextView-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textSize="60sp"-->
+        <!--android:textColor="@android:color/holo_red_light"-->
+        <!--android:text="Loading"/>-->
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
