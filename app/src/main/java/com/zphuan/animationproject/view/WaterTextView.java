@@ -19,7 +19,6 @@ import com.zphuan.animationproject.R;
  *
  * 水面下降效果控件
  */
-
 public class WaterTextView extends android.support.v7.widget.AppCompatTextView {
 
     private BitmapShader shader;

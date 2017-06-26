@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 /**
@@ -79,6 +80,7 @@ public class MusicView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        Log.i("huan", "onDraw");
         //绘制两个圆
         canvas.drawCircle(bigCircleRadius, bigCircleRadius, bigCircleRadius - smallCircleRadius, paint);
         //小圆粗一些

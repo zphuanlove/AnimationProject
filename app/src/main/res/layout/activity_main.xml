@@ -6,26 +6,77 @@
     android:orientation="vertical">
 
     <!--<com.zphuan.animationproject.view.WIFIView-->
-        <!--android:layout_width="200dp"-->
-        <!--android:layout_height="200dp"-->
-        <!--android:background="@color/colorPrimary" />-->
+    <!--android:layout_width="200dp"-->
+    <!--android:layout_height="200dp"-->
+    <!--android:background="@color/colorPrimary" />-->
 
     <!--<com.zphuan.animationproject.view.MusicView-->
-        <!--android:layout_centerInParent="true"-->
-        <!--android:layout_width="200dp"-->
-        <!--android:layout_height="200dp" />-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:layout_width="200dp"-->
+    <!--android:layout_height="200dp" />-->
 
     <!--<com.zphuan.animationproject.view.WaterTextView-->
-        <!--android:layout_centerInParent="true"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:textSize="60sp"-->
-        <!--android:textColor="@android:color/holo_red_light"-->
-        <!--android:text="Loading"/>-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:textSize="60sp"-->
+    <!--android:textColor="@android:color/holo_red_light"-->
+    <!--android:text="Loading"/>-->
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
+
+    <com.zphuan.animationproject.view.ArcMenu
+        android:layout_alignParentBottom="true"
+        android:layout_width="200dp"
+        android:layout_height="200dp">
+
+        <RelativeLayout
+            android:id="@+id/rl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/composer_button" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/composer_icn_plus" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/composer_camera" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/composer_music" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/composer_place" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/composer_sleep" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/composer_sun" />
+
+    </com.zphuan.animationproject.view.ArcMenu>
 
 </RelativeLayout>

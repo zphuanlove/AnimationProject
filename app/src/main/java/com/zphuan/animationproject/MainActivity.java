@@ -2,9 +2,6 @@ package com.zphuan.animationproject;
 
 import android.app.Dialog;
 import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.TransitionDrawable;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,16 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.zphuan.animationproject.view.MusicView;
 import com.zphuan.animationproject.view.WIFIView;
-import com.zphuan.animationproject.view.WaterTextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String[] datas = {"WIFI_Demo","Music_Demo","Water_Demo"};
+    private String[] data = {"WIFI_Demo","Music_Demo","Water_Demo"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
                 MyViewHolder viewHolder = (MyViewHolder) holder;
-                viewHolder.tv.setText(datas[position]);
+                viewHolder.tv.setText(data[position]);
                 viewHolder.tv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -54,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public int getItemCount() {
-                return datas.length;
+                return data.length;
             }
 
             class MyViewHolder extends RecyclerView.ViewHolder {

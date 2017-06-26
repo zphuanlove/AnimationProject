@@ -2,4 +2,5 @@
 <resources>
     <dimen name="view_width">200dp</dimen>
     <dimen name="view_height">200dp</dimen>
+    <dimen name="ArcMenu_Radius">130dp</dimen>
 </resources>
