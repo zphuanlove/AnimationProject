@@ -5,6 +5,13 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.AnimationUtils;
+import android.view.animation.CycleInterpolator;
+import android.view.animation.OvershootInterpolator;
+import android.view.animation.RotateAnimation;
+import android.view.animation.TranslateAnimation;
 
 import com.zphuan.animationproject.MyApplication;
 import com.zphuan.animationproject.R;
@@ -13,9 +20,10 @@ import com.zphuan.animationproject.R;
  * Created by PeiHuan on 2017/6/26.
  * 卫星菜单控件
  */
-public class ArcMenu extends ViewGroup {
+public class ArcMenu extends ViewGroup implements View.OnClickListener {
     private static final String TAG = "ArcMenu";
     private int height;
+    private View child0;
 
     public ArcMenu(Context context) {
         this(context, null);
@@ -53,21 +61,56 @@ public class ArcMenu extends ViewGroup {
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        View child0 = getChildAt(0);
-//        Log.i(TAG, "onLayout: child0.getMeasuredHeight()-"+child0.getMeasuredHeight());
+        child0 = getChildAt(0);
+        child0.setOnClickListener(this);
         //将第一个控件摆放在左下角
         child0.layout(0, height - child0.getMeasuredHeight(), child0.getMeasuredWidth(), height);
         int count = getChildCount();
         for (int i = 0; i < count - 1; i++) {
             double angle = Math.PI / 2 / (count - 2) * i;
-            Log.i(TAG, "angle:"+angle);
             View child = getChildAt(i + 1);
             int left = (int) (child0.getLeft() + RADIUS * Math.sin(angle));
             int top = (int) (child0.getTop() - RADIUS * Math.cos(angle));
             int right = left + child.getMeasuredWidth();
             int bottom = top + child.getMeasuredHeight();
-            Log.i(TAG, "l,t,r,t:"+left+","+top+","+right+","+bottom);
             child.layout(left, top, right, bottom);
+            child.setVisibility(INVISIBLE);
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+        //1.旋转自身
+        rotateChild0(v);
+        //2.执行其他子视图的动画
+        animateOtherChild();
+    }
+
+    private void animateOtherChild() {
+        int count = getChildCount();
+        for (int i = 0; i < count - 1; i++) {
+            AnimationSet as = new AnimationSet(false);
+            View child = getChildAt(i + 1);
+            child.setVisibility(VISIBLE);
+            int left = child.getLeft();
+            TranslateAnimation ta = new TranslateAnimation(
+                    Animation.ABSOLUTE,-left,
+                    Animation.ABSOLUTE, 0,
+                    Animation.ABSOLUTE,child0.getBottom()-child.getBottom(), Animation.ABSOLUTE,0);
+            ta.setStartOffset(200*i);
+            ta.setDuration(1000);
+            ta.setInterpolator(new OvershootInterpolator());
+            RotateAnimation ra = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+            ra.setDuration(2000);
+            as.addAnimation(ra);
+            as.addAnimation(ta);
+            child.startAnimation(as);
+        }
+    }
+
+    private void rotateChild0(View v) {
+        RotateAnimation ra = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        ra.setDuration(1000);
+        v.startAnimation(ra);
     }
 }
