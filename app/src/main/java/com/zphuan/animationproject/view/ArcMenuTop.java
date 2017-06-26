@@ -66,8 +66,8 @@ public class ArcMenuTop extends ViewGroup implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-                rotateChild0();
-                animateOtherChildren();
+        rotateChild0();
+        animateOtherChildren();
     }
 
     //子视图的动画效果处理
@@ -100,10 +100,11 @@ public class ArcMenuTop extends ViewGroup implements View.OnClickListener {
                 public void onAnimationStart(Animation animation) {
 
                 }
+
                 //当动画接收后的处理
                 @Override
                 public void onAnimationEnd(Animation animation) {
-                    if(status==CurrentStatus.CLOSE){
+                    if (status == CurrentStatus.CLOSE) {
                         child.setVisibility(View.INVISIBLE);
                     }
                 }

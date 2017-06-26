@@ -7,8 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
-import android.view.animation.AnimationUtils;
-import android.view.animation.CycleInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
@@ -148,7 +146,7 @@ public class ArcMenu extends ViewGroup implements View.OnClickListener {
 
     //定义卫星菜单打开和关闭的状态
     public enum CurrentStatus {
-        OPEN, CLOSE;
+        OPEN, CLOSE
     }
 
     private void changeCurrentStatus() {
