@@ -87,7 +87,7 @@ public class ArcMenuTop extends ViewGroup implements View.OnClickListener {
             //参数2,4:x方向从2到4
             //参数5,7:y方向的移动的类型
             //参数6,8:y方向从6到8
-            TranslateAnimation ta = null;
+            TranslateAnimation ta;
             if (status == CurrentStatus.CLOSE) {
                 ta = new TranslateAnimation(TranslateAnimation.ABSOLUTE, -childLeft, TranslateAnimation.ABSOLUTE, 0, TranslateAnimation.ABSOLUTE, -childTop, TranslateAnimation.ABSOLUTE, 0);
             } else {

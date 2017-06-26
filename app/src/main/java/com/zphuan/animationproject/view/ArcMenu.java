@@ -89,28 +89,69 @@ public class ArcMenu extends ViewGroup implements View.OnClickListener {
     private void animateOtherChild() {
         int count = getChildCount();
         for (int i = 0; i < count - 1; i++) {
-            AnimationSet as = new AnimationSet(false);
-            View child = getChildAt(i + 1);
-            child.setVisibility(VISIBLE);
+            AnimationSet as = new AnimationSet(true);
+            final View child = getChildAt(i + 1);
+            child.setVisibility(View.VISIBLE);
             int left = child.getLeft();
-            TranslateAnimation ta = new TranslateAnimation(
-                    Animation.ABSOLUTE,-left,
-                    Animation.ABSOLUTE, 0,
-                    Animation.ABSOLUTE,child0.getBottom()-child.getBottom(), Animation.ABSOLUTE,0);
+            TranslateAnimation ta;
+            if(status==CurrentStatus.CLOSE) {
+                 ta = new TranslateAnimation(
+                        Animation.ABSOLUTE, -left,
+                        Animation.ABSOLUTE, 0,
+                        Animation.ABSOLUTE, child0.getBottom() - child.getBottom(), Animation.ABSOLUTE, 0);
+            }else{
+                ta = new TranslateAnimation(
+                        Animation.ABSOLUTE, 0,
+                        Animation.ABSOLUTE, -left,
+                        Animation.ABSOLUTE, 0, Animation.ABSOLUTE, child0.getBottom() - child.getBottom());
+            }
+            ta.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    Log.i(TAG, "onAnimationEnd");
+                    if(status==CurrentStatus.CLOSE){
+                        child.clearAnimation();
+                        child.setVisibility(View.INVISIBLE);
+                    }
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+            });
             ta.setStartOffset(200*i);
-            ta.setDuration(1000);
+            ta.setDuration(2000);
             ta.setInterpolator(new OvershootInterpolator());
-            RotateAnimation ra = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+            RotateAnimation ra = new RotateAnimation(0, 720, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
             ra.setDuration(2000);
             as.addAnimation(ra);
             as.addAnimation(ta);
+            as.setFillAfter(true);
             child.startAnimation(as);
         }
+        changeCurrentStatus();
     }
 
     private void rotateChild0(View v) {
         RotateAnimation ra = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         ra.setDuration(1000);
         v.startAnimation(ra);
+    }
+
+    private CurrentStatus status = CurrentStatus.CLOSE;
+
+    //定义卫星菜单打开和关闭的状态
+    public enum CurrentStatus {
+        OPEN, CLOSE;
+    }
+
+    private void changeCurrentStatus() {
+        status = status == CurrentStatus.CLOSE ? CurrentStatus.OPEN : CurrentStatus.CLOSE;
     }
 }
