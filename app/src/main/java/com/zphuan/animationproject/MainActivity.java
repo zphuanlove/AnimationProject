@@ -15,12 +15,13 @@ import android.widget.TextView;
 
 import com.zphuan.animationproject.view.Ball;
 import com.zphuan.animationproject.view.Balls;
+import com.zphuan.animationproject.view.Lines;
 import com.zphuan.animationproject.view.MusicView;
 import com.zphuan.animationproject.view.WIFIView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String[] data = {"WIFI_Demo","Music_Demo","Water_Demo","Ball_Demo","Balls_Demo"};
+    private String[] data = {"WIFI_Demo","Music_Demo","Water_Demo","Ball_Demo","Balls_Demo","Lines_Demo"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +90,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 4:
                 view = new Balls(this);
+                break;
+            case 5:
+                view = new Lines(this);
+                view.setBackgroundColor(Color.BLUE);
                 break;
         }
         dialog.setContentView(view);

@@ -34,7 +34,7 @@ public class Balls extends View {
         paint = new Paint();
         paint.setColor(Color.WHITE);
         paint.setAntiAlias(true);
-//        paint.setStyle(Paint.Style.STROKE);
+        paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(3);
     }
 
