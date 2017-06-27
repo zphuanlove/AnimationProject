@@ -11,7 +11,6 @@ import android.view.View;
 /**
  * Created by PeiHuan on 2017/6/27.
  */
-
 public class Ball extends View {
     private int w;
     private int h;

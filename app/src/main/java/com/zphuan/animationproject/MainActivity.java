@@ -14,12 +14,13 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.zphuan.animationproject.view.Ball;
+import com.zphuan.animationproject.view.Balls;
 import com.zphuan.animationproject.view.MusicView;
 import com.zphuan.animationproject.view.WIFIView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String[] data = {"WIFI_Demo","Music_Demo","Water_Demo","Ball"};
+    private String[] data = {"WIFI_Demo","Music_Demo","Water_Demo","Ball_Demo","Balls_Demo"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +86,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 3:
                 view = new Ball(this);
+                break;
+            case 4:
+                view = new Balls(this);
+                break;
         }
         dialog.setContentView(view);
         if(position!=2){
