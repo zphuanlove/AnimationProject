@@ -1,6 +1,7 @@
 package com.zphuan.animationproject;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import com.zphuan.animationproject.activity.CarActivity;
 import com.zphuan.animationproject.view.Ball;
 import com.zphuan.animationproject.view.Balls;
 import com.zphuan.animationproject.view.Lines;
@@ -21,7 +23,9 @@ import com.zphuan.animationproject.view.WIFIView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String[] data = {"WIFI_Demo","Music_Demo","Water_Demo","Ball_Demo","Balls_Demo","Lines_Demo"};
+    private String[] data = {"WIFI_Demo","Music_Demo",
+            "Water_Demo","Ball_Demo","Balls_Demo",
+            "Lines_Demo","Car_Demo"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +99,10 @@ public class MainActivity extends AppCompatActivity {
                 view = new Lines(this);
                 view.setBackgroundColor(Color.BLUE);
                 break;
+            case 6:
+                Intent intent = new Intent(this, CarActivity.class);
+                startActivity(intent);
+                return;
         }
         dialog.setContentView(view);
         if(position!=2){

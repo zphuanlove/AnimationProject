@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/backgroud"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_width="277.33dp"
+        android:layout_height="334.66dp"
+        android:layout_gravity="center"
+        android:background="@drawable/water">
+        <FrameLayout
+            android:layout_marginTop="30dp"
+            android:layout_width="210dp"
+            android:layout_height="210dp"
+            android:background="@drawable/rain_bow"
+            android:layout_gravity="center_horizontal">
+            <com.zphuan.animationproject.view.Road
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+            <include layout="@layout/car"/>
+
+        </FrameLayout>
+    </FrameLayout>
+</FrameLayout>
