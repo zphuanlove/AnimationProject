@@ -13,7 +13,6 @@ import com.zphuan.animationproject.R;
 /**
  * Created by PeiHuan on 2017/6/28.
  */
-
 public class CarActivity extends Activity {
     private ImageView gas;
     private Handler handler = new Handler();
