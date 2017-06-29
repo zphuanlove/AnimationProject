@@ -15,6 +15,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.zphuan.animationproject.activity.CarActivity;
+import com.zphuan.animationproject.activity.SVGActivity;
 import com.zphuan.animationproject.view.Ball;
 import com.zphuan.animationproject.view.Balls;
 import com.zphuan.animationproject.view.Lines;
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String[] data = {"WIFI_Demo","Music_Demo",
             "Water_Demo","Ball_Demo","Balls_Demo",
-            "Lines_Demo","Car_Demo"};
+            "Lines_Demo","Car_Demo","SVG_TWO_LINE"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         Window window = dialog.getWindow();
         WindowManager.LayoutParams attributes = window.getAttributes();
         View view = null;
+        Intent intent = null;
         switch (position){
             case 0:
                 view = new WIFIView(this);
@@ -100,7 +102,11 @@ public class MainActivity extends AppCompatActivity {
                 view.setBackgroundColor(Color.BLUE);
                 break;
             case 6:
-                Intent intent = new Intent(this, CarActivity.class);
+                intent = new Intent(this, CarActivity.class);
+                startActivity(intent);
+                return;
+            case 7:
+                intent = new Intent(this, SVGActivity.class);
                 startActivity(intent);
                 return;
         }
