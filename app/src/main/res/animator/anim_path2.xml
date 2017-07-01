@@ -11,5 +11,4 @@
             L 50,50 80,20"
     android:valueType="pathType"
     >
-
 </objectAnimator >

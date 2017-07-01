@@ -19,6 +19,7 @@
         </activity>
         <activity android:name=".activity.CarActivity"/>
         <activity android:name=".activity.SVGActivity"/>
+        <activity android:name=".activity.EditActivity"/>
     </application>
 
 </manifest>

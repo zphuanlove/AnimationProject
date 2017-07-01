@@ -15,6 +15,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.zphuan.animationproject.activity.CarActivity;
+import com.zphuan.animationproject.activity.EditActivity;
 import com.zphuan.animationproject.activity.SVGActivity;
 import com.zphuan.animationproject.view.Ball;
 import com.zphuan.animationproject.view.Balls;
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String[] data = {"WIFI_Demo","Music_Demo",
             "Water_Demo","Ball_Demo","Balls_Demo",
-            "Lines_Demo","Car_Demo","SVG_TWO_LINE"};
+            "Lines_Demo","Car_Demo","SVG_TWO_LINE","SVG_editText"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +108,10 @@ public class MainActivity extends AppCompatActivity {
                 return;
             case 7:
                 intent = new Intent(this, SVGActivity.class);
+                startActivity(intent);
+                return;
+            case 8:
+                intent = new Intent(this, EditActivity.class);
                 startActivity(intent);
                 return;
         }

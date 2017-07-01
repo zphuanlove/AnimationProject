@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/et_bg">
+    <target
+        android:animation="@animator/bottom_line_gone"
+        android:name="bottom"/>
+    <target
+        android:animation="@animator/right_default_gone"
+        android:name="right"/>
+</animated-vector>

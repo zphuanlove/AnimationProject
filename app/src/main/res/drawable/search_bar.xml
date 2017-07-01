@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="160dp"
+    android:height="30dp"
+    android:viewportHeight="30"
+    android:viewportWidth="160">
+
+    <!--指的放大镜的效果 -->
+    <path
+        android:name="search"
+        android:pathData="
+        M 141,17
+        A 9 9 0 1 1 142 16
+        L 149 23"
+        android:strokeAlpha="0.8"
+        android:strokeColor="#ff3570be"
+        android:strokeLineCap="round"
+        android:strokeWidth="2"/>
+    <!--指的直线效果 -->
+    <path
+        android:name="bar"
+        android:pathData="
+        M 0,23
+        L 149,23"
+        android:strokeAlpha="0.8"
+        android:strokeColor="#ff3570be"
+        android:strokeLineCap="square"/>
+
+</vector>

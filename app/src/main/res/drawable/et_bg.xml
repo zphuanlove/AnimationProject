@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="300dp"
+        android:height="96dp"
+        android:viewportHeight="48"
+        android:viewportWidth="150">
+    <!-- 绘制底部的直线-->
+    <path
+        android:name="bottom"
+        android:pathData="
+        M 0,23
+        L 140,23"
+        android:strokeAlpha="0.8"
+        android:strokeColor="@color/colorAccent"
+        android:strokeLineCap="square"
+        android:strokeWidth="1"/>
+    <!--对钩的处理
+    大写的L:后面的数据就是直线的终点
+    小写的l:后面的数据是增量-->
+    <path
+        android:name="right"
+        android:pathData="
+        M 128,13
+        l 3,3
+        l 5,-6"
+        android:strokeWidth="2"
+        android:strokeColor="@color/colorAccent"
+        android:strokeLineCap="round"/>
+
+</vector>
